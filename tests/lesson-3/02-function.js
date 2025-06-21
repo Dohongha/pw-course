@@ -32,9 +32,12 @@ console.log(resultTemperature);
 //Ex3: chưa xong
 // const numberList = [0, 1, 2, 3, 4, 5, 6, 7];
 // function getPrime(arrNumber) {
+//     let isPrime = true;
 //     for (let i = 0; i < arrNumber.length; i++) {
 //         if (arrNumber[i] < 2) {
-
+//             return isPrime=false;
+//         }else{
+            
 //         }
 //     }
 // }
