@@ -30,32 +30,53 @@ const resultTemperature = transferTemp(114, "F");
 console.log(resultTemperature);
 
 //Ex3: chưa xong
-// const numberList = [0, 1, 2, 3, 4, 5, 6, 7];
-// function getPrime(arrNumber) {
-//     let isPrime = true;
-//     for (let i = 0; i < arrNumber.length; i++) {
-//         if (arrNumber[i] < 2) {
-//             return isPrime=false;
-//         }else{
-            
-//         }
-//     }
-// }
+function isPrimeNumber(number) {
+    if (number < 2) {
+        return false;
+    }
+    for (let i = 2; i < Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function filterPrimeNumber(arr) {
+    const primeNumber = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (isPrimeNumber(arr[i])) { //điều kiện trong if luôn luôn là điều kiện phải = true, tức là nếu hàm isPrimeNumber trả về true thì thực hiện code trong {}
+            primeNumber.push(arr[i]);
+        }
+    }
+    return primeNumber;
+}
+const numberList = [0, 1, 2, 3, 4, 5, 6, 7];
+const resultPrimeNumber = filterPrimeNumber(numberList);
+console.log(resultPrimeNumber);
 
 //Ex4:
 const globals = [
     { "name": "Ha", "email": "hado@gmail.com" },
-    { "name": "Lan", "email": "lan@gmail.com" }
+    { "name": "Lan", "email": "lan@gmail.com" },
+    { "name": "Quang", "email": "quang@gmail.com" }
 ];
 function updateEmail(name, newEmail) {
+    let duplication = false;
     for (let user of globals) {
         if (user["name"] === name) {
             user["email"] = newEmail;
+            console.log(`Email của người dùng ${name} đã được thay đổi thành ${newEmail}`);
+            return duplication = true;
+        }
+        if (!duplication) {
+            console.log(`Người dùng ${name} không tồn tại`);
+            break;
         }
     }
     return globals;
 }
-let resultUser = updateEmail("Ha", "test@gmail.com");
+let resultUser = updateEmail("Man", "test@gmail.com");
 console.log(resultUser);
 
 //Ex5:

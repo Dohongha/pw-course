@@ -35,7 +35,7 @@ delete employee.age;
 console.log(employee);
 
 //Ex5:
-const school = {
+let school = {
     "classA": ["An", "Bình", "Châu"],
     "classB": ["Đào", "Hương", "Giang"]
 }
