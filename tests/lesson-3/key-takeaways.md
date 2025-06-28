@@ -91,4 +91,206 @@ const product = {
     ```
     *Nên dùng dấu ngoặc vuông vì linh động và thuộc tính có thể chứa khoảng trắng*
 
-...To be continued ^^ Sorry teacher!
+- Xóa thuộc tính:
+    ```
+    delete user.age;
+
+    delete user["age"];
+    ```
+
+- Vòng lặp **for...in**:
+    ```
+    let user = {"name":"Ha", "age": 18, "phoneNumber": 12344};
+    for (let property in user){
+        console.log(property)
+    }
+    //In ra 3 dòng lần lượt là:
+    // name
+    // age
+    // phoneNumber
+    ```
+4. Logical operator:
+
+- **&&** : cả 2 vế của mệnh đề đều đúng
+- **||** : một trong 2 vế đúng
+- **!** : đảo ngược lại giá trị đúng của mệnh đề
+
+5. Array
+- Array (mảng) là một kiểu dữ liệu có cấu trúc, dùng để lưu trữ nhiều giá trị trong một biến duy nhất. Mỗi phần tử trong mảng đều có index và bắt đầu = 0.
+- Cách khai báo mảng:
+```
+let arr = [1, 2, 3];
+let str = ["Ha", "Trang", "NA"];
+```
+- Một số thao tác với Array:
+    
+    - length : độ dài mảng
+    - Lấy phần tử theo index : [0], [1], [2],...
+    - push() : thêm phần tử vào cuối
+    - pop() : xóa phần tử cuối
+    - unshift(): thêm phần tử vào đầu
+    - shift(): xóa phần tử đầu
+    - include(): kiểm tra có phần tử hay không
+
+```
+let arr = [1, 2, 3];
+arr.length; //length = 3
+arr.push(4); // [1, 2, 3, 4]
+arr.pop(); // [1, 2, 3];
+arr.unshift(-1); //[-1, 1, 2, 3];
+arr.shift(); //[1, 2, 3];
+```
+- Duyệt mảng (loop):
+
+    - Vòng lặp **for**:
+    ```
+    for (let i = 0; i < str.length; i++){
+        console.log(str[i]);
+    }
+    //Kết quả in ra 3 dòng lần lượt là:
+    //Ha
+    //Trang
+    //NA
+    ```
+    - Vòng lặp **for ... of**:
+    ```
+    for (let name of str){
+        console.log(name);
+    }
+    //Kết quả in ra 3 dòng lần lượt là:
+    //Ha
+    //Trang
+    //NA
+    ```
+    - Vòng lặp **forEach**:
+    ```
+    str.forEach(function(name, index){
+        console.log(index, item);
+    })
+    //Kết quả in ra 3 dòng lần lượt có cả index là:
+    // 0: Ha
+    // 1: Trang
+    // 2: NA
+
+    str.forEach(function(name){
+        console.log(name);
+    })
+    //Kết quả in ra 3 dòng lần lượt là:
+    //Ha
+    //Trang
+    //NA
+
+6. Function
+- Function (hàm) là đoạn code được đặt tên và có thể tái sử dụng, thực hiện 1 nhiệm vụ hoặc 1 tính toán cụ thể.
+- Khai báo:
+```
+function <nameFunction>(){
+    //code
+}
+```
+```
+function sayHello(){
+    console.log("Hello");
+}
+
+sayHello(); //Gọi hàm
+// Kết quả in ra là: Hello
+```
+- Hàm có tham số (parameters) và trả về (return):
+```
+function sum(a, b){
+    return a + b;
+}
+let result = sum(2, 3);
+console.log(result);
+// Kết quả in ra: 5
+```
+7. Phạm vi của biến
+- Global:
+```
+for (var i = 0; i < 5; i++){
+    console.log(i); // in ra từ 0-4
+}
+
+console.log(i); // in ra 5 vì var có phạm vi Global, nên khi chạy xong vòng lặp i=4 thì i tiếp tục tăng lên 1 -> i=5, vì không thỏa mãn điều kiện vòng lặp for nên nó sẽ break ra khỏi vòng lặp, do đó i = 5 ở ngoài vòng lặp -> do đó cần dùng LET để tránh các lỗi phía dưới như VAR.
+```
+- Scope: {}
+```
+for(let i = 0; i < 5; i++){
+    console.log(i); // in ra từ 0-4
+}
+
+console.log(i); // in ra lỗi i undefined vì i chưa được khai báo, ở phía trên khai báo let i nên i sẽ chỉ hoạt động trong vòng lặp for.
+```
+- Hoisting: vì code lần lượt chạy từ trên xuống nên cần phải khai báo biến trước khi thực hiện lệnh.
+```
+console.log(a); // in ra lỗi can't access a
+let a = 1;
+```
+8. Câu điều kiện nâng cao
+- If... else:
+```
+if (condition){
+    // run code khi condition = true
+}else{
+    // run code khi condition = false
+}
+```
+- If... else if... else:
+```
+if (condition1){
+    // run code khi condition1 = true
+}else if(condition2){
+    // run code khi condition2 = true
+}else{
+    // run code khi condtion = false
+}
+```
+- Switch...case...default:
+```
+let day = Tuesday;
+switch(day){
+    case Monday:
+        console.log("Today is Monday);
+        break;
+    case Tuesday:
+        console.log("Today is Tuesday");
+        break;
+    default:
+        console.log("Invalid day");
+}
+```
+9. So sánh
+-  == và != : so sánh lỏng lẻo, chỉ so sánh giá trị
+- === và !==: so sánh tuyệt đối, so sánh cả giá trị và kiểu dữ liệu -> Nên dùng so sánh tuyệt đối
+```
+const result = "5" == 5 // result is true
+const result = "5" === // result is false
+```
+10. Continue và Break
+- Continue: bỏ qua vòng lặp, chạy đến vòng lặp tiếp theo
+. Nếu gặp continue thì bỏ qua đoạn code phía dưới.
+```
+for(let i=1; i<=5; i++){
+    if(i % 2 === 0){
+        continue; // Khi i = 2, 4 thì sẽ thực hiện câu lệnh continue -> chạy đến vòng lặp tiếp theo
+    }
+    
+    console.log(i);
+    // Kết quả in ra 3 dòng:
+    // 1
+    // 3
+    // 5
+}
+```
+- Break: sẽ thoát ra khỏi vòng lặp, không chạy tiếp nữa.
+```
+for(let i=1; i<=5; i++){
+    if(i % 2 === 0){
+        break; // Khi i = 2 thì thực hiện câu lệnh break -> dừng vòng lặp, không chạy tiếp nữa
+    
+    console.log(i);
+    //Kết quả in ra 1 dòng:
+    // 1
+}
+```

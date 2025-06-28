@@ -47,6 +47,6 @@ console.log("-----------------");
 
 //Ex5:
 function returnToEarth() {
-    return `Chuẩn bị trở về ${departurePlanet}!`;
+    console.log(`Chuẩn bị trở về ${departurePlanet}!`);
 }
-console.log(returnToEarth());
+returnToEarth();
